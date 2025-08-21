@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+
+<TableView fx:id="clientiTable" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.tuocrm.gui.DashboardController">
+    <columns>
+        <TableColumn fx:id="idColumn" text="ID" />
+        <TableColumn fx:id="nomeColumn" text="Nome" prefWidth="150" />
+        <TableColumn fx:id="cognomeColumn" text="Cognome" prefWidth="150" />
+        <TableColumn fx:id="aziendaColumn" text="Azienda" prefWidth="200" />
+        <TableColumn fx:id="statoColumn" text="Stato" prefWidth="100" />
+    </columns>
+</TableView>

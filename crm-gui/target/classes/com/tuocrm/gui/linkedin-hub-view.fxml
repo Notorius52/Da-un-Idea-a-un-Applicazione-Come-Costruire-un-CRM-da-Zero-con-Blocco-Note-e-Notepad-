@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="TOP_CENTER" spacing="10.0" xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tuocrm.gui.LinkedInHubController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+
+    <Label text="LinkedIn Hub" style="-fx-font-size: 24px; -fx-font-weight: bold;" />
+    <Label text="Gestione dei lead provenienti da LinkedIn." />
+
+    <TableView fx:id="leadsTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="nomeLeadColumn" prefWidth="150.0" text="Nome Contatto" />
+            <TableColumn fx:id="aziendaLeadColumn" prefWidth="200.0" text="Azienda" />
+            <TableColumn fx:id="statoLeadColumn" prefWidth="120.0" text="Stato" />
+        </columns>
+    </TableView>
+
+    <HBox alignment="CENTER_RIGHT" spacing="10.0">
+        <Button onAction="#onAggiungiLeadClicked" text="Aggiungi Lead..." />
+        <Button onAction="#onModificaLeadClicked" text="Modifica..." />
+        <Button onAction="#onEliminaLeadClicked" text="Elimina" />
+    </HBox>
+</VBox>

@@ -1,0 +1,5 @@
+com\tuocrm\database\SqliteClienteRepository.class
+com\tuocrm\database\DatabaseManager.class
+com\tuocrm\database\InMemoryClienteRepository.class
+com\tuocrm\database\ClienteRepository.class
+com\tuocrm\database\SqlitePartnerRepository.class

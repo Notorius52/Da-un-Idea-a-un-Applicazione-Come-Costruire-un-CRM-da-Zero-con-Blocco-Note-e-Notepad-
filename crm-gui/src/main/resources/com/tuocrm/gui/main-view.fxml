@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="mainBorderPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.tuocrm.gui.MainController"
+            prefHeight="600.0" prefWidth="900.0">
+    <top>
+        <MenuBar>
+            <menus>
+                <Menu text="File">
+                    <items>
+                        <MenuItem text="Nuovo Cliente..." />
+                        <SeparatorMenuItem />
+                        <MenuItem text="Esci" />
+                    </items>
+                </Menu>
+                <Menu text="Aiuto">
+                    <items>
+                        <MenuItem text="Informazioni su CRM" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </top>
+
+    <left>
+        <VBox spacing="10" style="-fx-background-color: #f4f4f4; -fx-padding: 15;">
+            <padding><Insets top="10" right="10" bottom="10" left="10" /></padding>
+            <children>
+                <Label text="Menu Principale" style="-fx-font-weight: bold;" />
+                <Button text="Dashboard" prefWidth="150" onAction="#onDashboardClicked"/>
+                <Button text="LinkedIn Hub" prefWidth="150" onAction="#onLinkedInHubClicked"/>
+                <Button text="Content Planner" prefWidth="150" onAction="#onContentPlannerClicked"/>
+                <Button text="Campagne ADS" prefWidth="150" onAction="#onCampagneADSClicked"/>
+                <Button text="Partner e Referral" prefWidth="150" onAction="#onPartnerReferralClicked"/>
+            </children>
+        </VBox>
+    </left>
+
+    <center />
+
+</BorderPane>
