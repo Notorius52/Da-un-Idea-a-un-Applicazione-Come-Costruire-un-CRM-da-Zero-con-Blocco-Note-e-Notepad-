@@ -47,6 +47,18 @@ public class MainController {
         System.out.println("Caricamento del modulo Partner e Referral...");
         caricaVista("partner-referral-view.fxml");
     }
+	
+	@FXML
+    public void onClientiClicked() {
+    System.out.println("Caricamento del modulo Clienti...");
+    caricaVista("clienti-view.fxml");
+    }
+	
+	@FXML
+public void onAttivitaClicked() {
+    System.out.println("Caricamento del modulo Attività...");
+    caricaVista("attivita-view.fxml");
+    } 
 
     private void caricaVista(String fxmlFile) {
         try {

@@ -1,6 +1,7 @@
-com\tuocrm\core\Cliente.class
 com\tuocrm\core\util\IdGenerator.class
-com\tuocrm\core\ContentPlan.class
+com\tuocrm\core\Attivita.class
 com\tuocrm\core\LeadLinkedIn.class
-com\tuocrm\core\Partner.class
 com\tuocrm\core\CampagnaADS.class
+com\tuocrm\core\Cliente.class
+com\tuocrm\core\ContentPlan.class
+com\tuocrm\core\Partner.class

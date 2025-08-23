@@ -1,0 +1,14 @@
+cd C:\Users\HP\Desktop\crm-progetto\crm-gui
+mvn javafx:run
+
+Ricostruzione completa
+
+:: 1. Vai alla cartella principale
+cd C:\Users\HP\Desktop\crm-progetto
+
+:: 2. Pulisci e ricostruisci l'intero progetto
+mvn clean install
+
+:: 3. Entra nel modulo GUI e lancia l'applicazione
+cd crm-gui
+mvn javafx:run

@@ -14,8 +14,10 @@ public class Cliente {
     private final StringProperty email;
     private final StringProperty telefono;
     private final StringProperty stato;
+    private final IntegerProperty partnerId;
 
-    public Cliente(int id, String nome, String cognome, String azienda, String email, String telefono, String stato) {
+    // Costruttore con 8 argomenti
+    public Cliente(int id, String nome, String cognome, String azienda, String email, String telefono, String stato, int partnerId) {
         this.id = new SimpleIntegerProperty(id);
         this.nome = new SimpleStringProperty(nome);
         this.cognome = new SimpleStringProperty(cognome);
@@ -23,61 +25,29 @@ public class Cliente {
         this.email = new SimpleStringProperty(email);
         this.telefono = new SimpleStringProperty(telefono);
         this.stato = new SimpleStringProperty(stato);
+        this.partnerId = new SimpleIntegerProperty(partnerId);
     }
 
-    public int getId() {
-        return id.get();
-    }
+    // Metodi per ID
+    public int getId() { return id.get(); }
+    public IntegerProperty idProperty() { return id; }
 
-    public IntegerProperty idProperty() {
-        return id;
-    }
+    // Metodi per Partner ID
+    public int getPartnerId() { return partnerId.get(); }
+    public IntegerProperty partnerIdProperty() { return partnerId; }
+    public void setPartnerId(int partnerId) { this.partnerId.set(partnerId); }
 
-    public String getNome() {
-        return nome.get();
-    }
-
-    public StringProperty nomeProperty() {
-        return nome;
-    }
-
-    public String getCognome() {
-        return cognome.get();
-    }
-
-    public StringProperty cognomeProperty() {
-        return cognome;
-    }
-
-    public String getAzienda() {
-        return azienda.get();
-    }
-
-    public StringProperty aziendaProperty() {
-        return azienda;
-    }
-
-    public String getEmail() {
-        return email.get();
-    }
-
-    public StringProperty emailProperty() {
-        return email;
-    }
-
-    public String getTelefono() {
-        return telefono.get();
-    }
-
-    public StringProperty telefonoProperty() {
-        return telefono;
-    }
-
-    public String getStato() {
-        return stato.get();
-    }
-
-    public StringProperty statoProperty() {
-        return stato;
-    }
+    // Metodi per gli altri campi
+    public String getNome() { return nome.get(); }
+    public StringProperty nomeProperty() { return nome; }
+    public String getCognome() { return cognome.get(); }
+    public StringProperty cognomeProperty() { return cognome; }
+    public String getAzienda() { return azienda.get(); }
+    public StringProperty aziendaProperty() { return azienda; }
+    public String getEmail() { return email.get(); }
+    public StringProperty emailProperty() { return email; }
+    public String getTelefono() { return telefono.get(); }
+    public StringProperty telefonoProperty() { return telefono; }
+    public String getStato() { return stato.get(); }
+    public StringProperty statoProperty() { return stato; }
 }

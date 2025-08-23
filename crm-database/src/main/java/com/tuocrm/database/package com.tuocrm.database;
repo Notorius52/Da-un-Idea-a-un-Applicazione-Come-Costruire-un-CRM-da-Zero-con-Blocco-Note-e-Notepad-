@@ -1,0 +1,30 @@
+package com.tuocrm.database;
+
+import com.tuocrm.core.CampagnaADS;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+
+public class SqliteCampagneRepository {
+
+    public List<CampagnaADS> findAll() {
+        String sql = "SELECT * FROM campagne";
+        List<CampagnaADS> campagne = new ArrayList<>();
+        try (Connection conn = DatabaseManager.getConnection();
+             Statement stmt  = conn.createStatement();
+             ResultSet rs    = stmt.executeQuery(sql)){
+            while (rs.next()) {
+                campagne.add(new CampagnaADS(
+                        rs.getString("nome"),
+                        rs.getString("piattaforma"),
+                        rs.getInt("budget"),
+                        rs.getInt("lead_generati"),
+                        rs.getString("stato")
+                ));
+            }
+        } catch (SQLException e) { System.err.println(e.getMessage()); }
+        return campagne;
+    }
+
+    // In futuro qui aggiungeremo save, update, delete per le campagne...
+}

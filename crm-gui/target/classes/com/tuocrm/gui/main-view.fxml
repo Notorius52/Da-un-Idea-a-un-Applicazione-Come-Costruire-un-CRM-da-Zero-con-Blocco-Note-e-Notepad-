@@ -13,35 +13,19 @@
 <BorderPane fx:id="mainBorderPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.tuocrm.gui.MainController"
             prefHeight="600.0" prefWidth="900.0">
-    <top>
-        <MenuBar>
-            <menus>
-                <Menu text="File">
-                    <items>
-                        <MenuItem text="Nuovo Cliente..." />
-                        <SeparatorMenuItem />
-                        <MenuItem text="Esci" />
-                    </items>
-                </Menu>
-                <Menu text="Aiuto">
-                    <items>
-                        <MenuItem text="Informazioni su CRM" />
-                    </items>
-                </Menu>
-            </menus>
-        </MenuBar>
-    </top>
-
+    
     <left>
         <VBox spacing="10" style="-fx-background-color: #f4f4f4; -fx-padding: 15;">
             <padding><Insets top="10" right="10" bottom="10" left="10" /></padding>
             <children>
                 <Label text="Menu Principale" style="-fx-font-weight: bold;" />
                 <Button text="Dashboard" prefWidth="150" onAction="#onDashboardClicked"/>
+				<Button text="Clienti" prefWidth="150" onAction="#onClientiClicked"/>
                 <Button text="LinkedIn Hub" prefWidth="150" onAction="#onLinkedInHubClicked"/>
                 <Button text="Content Planner" prefWidth="150" onAction="#onContentPlannerClicked"/>
                 <Button text="Campagne ADS" prefWidth="150" onAction="#onCampagneADSClicked"/>
                 <Button text="Partner e Referral" prefWidth="150" onAction="#onPartnerReferralClicked"/>
+				<Button text="Attività" prefWidth="150" onAction="#onAttivitaClicked"/>
             </children>
         </VBox>
     </left>

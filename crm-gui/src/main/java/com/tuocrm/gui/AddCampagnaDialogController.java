@@ -2,22 +2,17 @@ package com.tuocrm.gui;
 
 import com.tuocrm.core.CampagnaADS;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert; // <-- Importa la classe Alert
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class AddCampagnaDialogController {
 
-    @FXML
-    private TextField nomeField;
-    @FXML
-    private TextField piattaformaField;
-    @FXML
-    private TextField budgetField;
-    @FXML
-    private TextField leadsField;
-    @FXML
-    private TextField statoField;
+    @FXML private TextField nomeField;
+    @FXML private TextField piattaformaField;
+    @FXML private TextField budgetField;
+    @FXML private TextField leadsField;
+    @FXML private TextField statoField;
 
     private CampagnaADS campagnaDaModificare;
     private CampagnaADS risultato;
@@ -31,18 +26,14 @@ public class AddCampagnaDialogController {
         statoField.setText(campagna.getStato());
     }
 
-    public CampagnaADS getRisultato() {
-        return risultato;
-    }
+    public CampagnaADS getRisultato() { return risultato; }
 
     @FXML
     private void onSalvaClicked() {
-        // Validazione: controlla se i campi obbligatori sono vuoti
-        if (nomeField.getText().isEmpty() || budgetField.getText().isEmpty() || leadsField.getText().isEmpty()) {
-            mostraAvviso("Campi Obbligatori", "Per favore, compila almeno i campi Nome, Budget e Lead Generati.");
-            return; // Interrompi l'esecuzione del metodo
+        if (nomeField.getText().isEmpty()) {
+            mostraAvviso("Campo Obbligatorio", "Il campo Nome Campagna è obbligatorio.");
+            return;
         }
-
         try {
             String nome = nomeField.getText();
             String piattaforma = piattaformaField.getText();
@@ -51,7 +42,7 @@ public class AddCampagnaDialogController {
             String stato = statoField.getText();
 
             if (campagnaDaModificare == null) {
-                risultato = new CampagnaADS(nome, piattaforma, budget, leads, stato);
+                risultato = new CampagnaADS(0, nome, piattaforma, budget, leads, stato);
             } else {
                 campagnaDaModificare.nomeProperty().set(nome);
                 campagnaDaModificare.piattaformaProperty().set(piattaforma);
@@ -62,9 +53,7 @@ public class AddCampagnaDialogController {
             }
             closeStage();
         } catch (NumberFormatException e) {
-            // --- MODIFICA PRINCIPALE ---
-            // Sostituiamo la stampa in console con una finestra di avviso
-            mostraAvviso("Errore di Inserimento", "Budget e Lead Generati devono essere numeri validi (es. 500, 32).");
+            mostraAvviso("Errore di Formato", "I campi Budget e Lead Generati devono essere numeri.");
         }
     }
 
@@ -74,11 +63,8 @@ public class AddCampagnaDialogController {
         closeStage();
     }
 
-    private void closeStage() {
-        ( (Stage) nomeField.getScene().getWindow() ).close();
-    }
-
-    // NUOVO METODO HELPER per mostrare avvisi
+    private void closeStage() { ( (Stage) nomeField.getScene().getWindow() ).close(); }
+    
     private void mostraAvviso(String titolo, String messaggio) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Errore");

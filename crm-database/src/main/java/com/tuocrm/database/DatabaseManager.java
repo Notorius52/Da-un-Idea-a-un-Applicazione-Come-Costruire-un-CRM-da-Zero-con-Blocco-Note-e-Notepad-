@@ -15,29 +15,53 @@ public class DatabaseManager {
 
     public static void creaTabelleSeNonEsistono() {
         String sqlPartner = "CREATE TABLE IF NOT EXISTS partners (" +
-                            " id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                            " nome TEXT NOT NULL," +
-                            " azienda TEXT," +
-                            " email TEXT UNIQUE," +
-                            " referral_generati INTEGER DEFAULT 0" +
-                            ");";
+                                " id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                                " nome TEXT NOT NULL," +
+                                " azienda TEXT," +
+                                " email TEXT UNIQUE," +
+                                " referral_generati INTEGER DEFAULT 0" +
+                                ");";
 
+        // --- INIZIO MODIFICA ---
         String sqlClienti = "CREATE TABLE IF NOT EXISTS clienti (" +
-                            " id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                            " nome TEXT NOT NULL," +
-                            " cognome TEXT," +
-                            " azienda TEXT," +
-                            " email TEXT," +
-                            " telefono TEXT," +
-                            " stato TEXT" +
-                            ");";
+                                " id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                                " nome TEXT NOT NULL," +
+                                " cognome TEXT," +
+                                " azienda TEXT," +
+                                " email TEXT UNIQUE," +
+                                " telefono TEXT," +
+                                " stato TEXT," +
+                                " partner_id INTEGER," + // <-- COLONNA AGGIUNTA
+                                " FOREIGN KEY(partner_id) REFERENCES partners(id)" + // <-- VINCOLO AGGIUNTO
+                                ");";
+        // --- FINE MODIFICA ---
+
+        String sqlCampagne = "CREATE TABLE IF NOT EXISTS campagne (" +
+                                 " id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                                 " nome TEXT NOT NULL," +
+                                 " piattaforma TEXT," +
+                                 " budget INTEGER," +
+                                 " lead_generati INTEGER," +
+                                 " stato TEXT" +
+                                 ");";
+							 
+	    String sqlAttivita = "CREATE TABLE IF NOT EXISTS attivita (" +
+                                 " id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                                 " descrizione TEXT NOT NULL," +
+                                 " data_scadenza TEXT," +
+                                 " stato TEXT," +
+                                 " cliente_id INTEGER," +
+                                 " FOREIGN KEY(cliente_id) REFERENCES clienti(id)" +
+                                 ");";
 
         try (Connection conn = getConnection();
              Statement stmt = conn.createStatement()) {
 
             System.out.println("Controllo e creazione tabelle...");
             stmt.execute(sqlPartner);
-            stmt.execute(sqlClienti);
+            stmt.execute(sqlClienti); // Ora eseguirà la query corretta
+            stmt.execute(sqlCampagne);
+			stmt.execute(sqlAttivita);
             System.out.println("Tabelle pronte.");
 
         } catch (SQLException e) {
